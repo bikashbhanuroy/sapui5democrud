@@ -1,0 +1,7 @@
+{
+  "xsappname": "nwsapui5democrud",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [],
+  "role-templates": []
+}

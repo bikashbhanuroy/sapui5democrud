@@ -1,0 +1,40 @@
+<mvc:View controllerName="nw.sapui5democrud.controller.InvoiceList" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{
+         path : 'invoice>/Invoices',
+         sorter : {
+            path : 'ProductName' 
+         }
+      }">
+        <headerToolbar>
+            <Toolbar id="_IDGenToolbar1">
+                <Title id="_IDGenTitle1" text="{i18n>invoiceListTitle}" />
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices" />
+            </Toolbar>
+        </headerToolbar>
+        <items>
+            <ObjectListItem
+                id="_IDGenObjectListItem1"
+                title="{invoice>Quantity} x {invoice>ProductName}"
+                number="{
+			parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {
+				showMeasure: false
+			}
+		}"
+                numberUnit="{view>/currency}"
+                numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+                type="Navigation"
+                press="onPress"
+            >
+                <firstStatus>
+                    <ObjectStatus id="_IDGenObjectStatus1" text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.statusText'
+					}" />
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
+</mvc:View>

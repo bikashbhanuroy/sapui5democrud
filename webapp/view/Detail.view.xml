@@ -1,0 +1,6 @@
+<mvc:View controllerName="nw.sapui5democrud.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Page id="_IDGenPage1" title="{i18n>detailPageTitle}">
+    <!-- <ObjectHeader id="_IDGenObjectHeader1" title="Invoices" /> -->
+        <ObjectHeader id="_IDGenObjectHeader1" intro="{invoice>ShipperName}" title="{invoice>ProductName}" />
+    </Page>
+</mvc:View>
