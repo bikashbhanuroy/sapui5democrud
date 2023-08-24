@@ -1,22 +1,26 @@
 <mvc:View controllerName="nw.sapui5democrud.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="">
         <content>
-            <List id="list" items="{nwModel>/Categories}" mode="SingleSelectLeft">
+        <Panel id="idCrudPanel" expandable="true" expanded="false" headerText="{i18n>title}">
+            <List id="list" items="{/Categories}" mode="SingleSelectLeft">
                 <items>
-                    <StandardListItem id="_IDGenStandardListItem1" title="{nwModel>ID}" description="{nwModel>Name}" />
+                    <StandardListItem id="_IDGenStandardListItem1" title="{ID}-{Name}" description="" />
                 </items>
             </List>
-            <VBox id="_IDGenVBox1">
                 <Input placeholder="Enter the ID for the category" id="idinput" />
                 <Input placeholder="Enter the category name" id="nameinput" />
                 <HBox id="_IDGenHBox1" alignItems="End">
-                    <Button id="_IDGenButton1" text="Create" press="createData" />
+                    <Button id="_IDGenButton1" text="{i18n>btnCreateText}" press="createData" />
                     <Button id="_IDGenButton2" text="Update" press="updateData" />
                     <Button id="_IDGenButton3" text="Delete" press="deleteData" />
                 </HBox>
-                <Button id="helloDialogButton" icon="sap-icon://world" text="Open Dialog" press=".onOpenDialog" class="sapUiSmallMarginEnd" />
-            </VBox>
-            <mvc:XMLView id="_IDGenXMLView1" viewName="nw.sapui5democrud.view.InvoiceList"/>
+                </Panel>
+                <Panel id="idFragmentPanel" expandable="true" expanded="false" headerText="Fragment Example">
+                    <Button id="helloDialogButton" icon="sap-icon://world" text="Open Dialog" press=".onOpenDialog" class="sapUiSmallMarginEnd" />
+                </Panel>
+            <Panel id="idJsonModelPanel" expandable="true" expanded="false" headerText="Nested View with JSON Model">
+                <mvc:XMLView id="_IDGenXMLView1" viewName="nw.sapui5democrud.view.InvoiceList"/>
+            </Panel>
         </content>
     </Page>
 </mvc:View>

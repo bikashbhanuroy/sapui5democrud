@@ -17,13 +17,13 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/V2/(S(4v03bfpjrejawmqbuhnu2ykc))/OData/OData.svc/",
+                "uri": "/V2/(S(mbf5wurms0oivp2vmo0aah4c))/OData/OData.svc/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
                     "localUri": "localService/metadata.xml",
                     "odataVersion": "2.0"
-                }
+                }               
             }
         },
         "crossNavigation": {
@@ -109,7 +109,12 @@
                 "viewPath": "nw.sapui5democrud.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
-                "clearControlAggregation": false
+                "clearControlAggregation": false,
+                "bypassed": {
+                    "target": [
+                      "notFound"
+                    ]
+                  }
             },
             "routes": [
                 {
@@ -137,7 +142,11 @@
                     "viewType": "XML",
                     "viewId": "Detail",
                     "viewName": "Detail"
-                  }
+                  },
+                "notFound": {
+                "viewName": "NotFound",
+                "viewId": "notFound"
+                }
             }
         },
         "rootView": {
